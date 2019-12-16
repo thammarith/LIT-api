@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser');
+const cors = require('cors')
 const db = require('diskdb');
 const express = require('express');
 const fileUpload = require('express-fileupload');
@@ -11,6 +12,7 @@ const port = (process.env.PORT || 4000);
 
 db.connect('./db', ['orders', 'products']);
 
+server.use(cors());
 server.use(bodyParser.json());
 server.use(fileUpload());
 
