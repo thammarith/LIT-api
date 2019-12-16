@@ -87,6 +87,6 @@ server.delete('/products/:id', (req, res) => {
   res.json(db.products.find().map(p => productUtils.getProductWithImage(p)));
 });
 
-server.listen(port, '0.0.0.0', () => {
+server.listen(port, () => {
   console.log(`Server is listening at port ${port} (${process.env.PORT})`);
 });
