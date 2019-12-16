@@ -7,14 +7,14 @@ const productUtils = require('./utils/products');
 
 const server = express();
 
-const port = process.env.PORT_NUMBER;
+const port = (process.env.PORT_NUMBER || 4000);
 
 db.connect('./db', ['orders', 'products']);
 
 server.use(bodyParser.json());
 server.use(fileUpload());
 
-server.listen(port || 4000, () => {
+server.listen(port , () => {
   console.log(`Server is listening at port ${port}`);
 });
 
