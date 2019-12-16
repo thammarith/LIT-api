@@ -7,7 +7,7 @@ const productUtils = require('./utils/products');
 
 const server = express();
 
-const port = (process.env.PORT_NUMBER || 4000);
+const port = (process.env.PORT || 4000);
 
 db.connect('./db', ['orders', 'products']);
 
@@ -15,7 +15,7 @@ server.use(bodyParser.json());
 server.use(fileUpload());
 
 server.listen(port , () => {
-  console.log(`Server is listening at port ${port}`);
+  console.log(`Server is listening at port ${port} (${process.env.PORT})`);
 });
 
 server.get('/img/:fileName', (req, res) => {
