@@ -14,10 +14,6 @@ db.connect('./db', ['orders', 'products']);
 server.use(bodyParser.json());
 server.use(fileUpload());
 
-server.listen(port , () => {
-  console.log(`Server is listening at port ${port} (${process.env.PORT})`);
-});
-
 server.get('/img/:fileName', (req, res) => {
   const fileName = req.params.fileName;
   res.sendFile(__dirname + '/img/' + fileName);
@@ -89,4 +85,8 @@ server.delete('/products/:id', (req, res) => {
   db.products.remove({ _id });
 
   res.json(db.products.find().map(p => productUtils.getProductWithImage(p)));
+});
+
+server.listen(port, '0.0.0.0', () => {
+  console.log(`Server is listening at port ${port} (${process.env.PORT})`);
 });
