@@ -1,8 +1,7 @@
-const protocol = 'http://'
-const host = 'localhost';
-const port = 4000;
+const protocol = 'https://'
+const host = 'line-interview-api.herokuapp.com';
 
-const apiUrl = `${protocol}${host}:${port}`
+const apiUrl = `${protocol}${host}`
 
 function getProductImageUrl(product) {
   return `${apiUrl}/img/${product._id}.${product.prd_image_ext}`
